@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardBody, CardHeader, Col, Container, Row, Table } from 'reactstrap'
 import Header from './Header'
 import Axios from 'axios'
+import { BaseURL } from './Requests'
 
 
 const App = () => {
+  // console.log(process.env)
   const [AllEmployees, setAllEmployees] = useState([])
 
 
   useEffect(() => {
     // Fetch Employees
-    Axios.get('http://127.0.0.1:5000/employee/get').then(e => {
+    Axios.get(`${BaseURL}employee/get`).then(e => {
       setAllEmployees(e.data)
     })
   }, [])
@@ -26,19 +28,21 @@ const App = () => {
                 Employees
               </CardHeader>
               <CardBody>
-                <Table>
-                  <thead>
+                <Table striped hover>
+                  <thead className='text-secondary'>
                     <tr>
                       <th>EmpID</th>
                       <th>Name</th>
+                      <th>Phone Number</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {AllEmployees.map(emp => {
+                    {AllEmployees.map((emp, key) => {
                       return (
-                        <tr>
+                        <tr key={key}>
                           <td>{emp.empID}</td>
                           <td>{emp.name}</td>
+                          <td>{emp.phone}</td>
                         </tr>
                       )
                     })}
