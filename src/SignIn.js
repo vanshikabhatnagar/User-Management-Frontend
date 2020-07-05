@@ -49,7 +49,7 @@ const SignIn = () => {
             <Row>
                 <Col className='mx-auto center-vertical-horizontal' xl={4} lg={5} md={6} sm={8} xs={10}>
                     <Card className='shadow text-center border-0'>
-                        <CardTitle className=' mt-4'><h5>DT A/B Testing</h5></CardTitle>
+                        <CardTitle className=' mt-4'><h5>User Management</h5></CardTitle>
                         <CardBody className='px-lg-5 py-lg-5'>
                             <Form>
                                 <InputGroup className='mb-3'>
@@ -67,7 +67,7 @@ const SignIn = () => {
                                 {Loading ?
                                     <Spinner color='primary' />
                                     :
-                                    <Button onClick={loginToServer} className='mt-3' color='secondary' type='button'>Sign In</Button>
+                                    <Button onClick={()=>loginToServer('manualLogin')} className='mt-3' color='secondary' type='button'>Sign In</Button>
                                 }
                                 {ErrorMessage && <h5 className='mt-4 text-danger text-center'>{ErrorMessage}</h5>}
                             </Form>
