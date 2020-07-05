@@ -31,7 +31,7 @@ const Header = () => {
                     <DropdownMenu right>
                         <DropdownItem header>Welcome!</DropdownItem>
                         <DropdownItem divider />
-                        <Link to='/auth'>
+                        <Link to='/auth' onClick={() => localStorage.clear()}>
                             <DropdownItem >Logout</DropdownItem>
                         </Link>
                     </DropdownMenu>
