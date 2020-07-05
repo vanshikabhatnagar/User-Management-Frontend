@@ -1,0 +1,45 @@
+// Override bootstrap colours before importing bootstrap
+$primary: #0a6ebd;
+$secondary: #317cb3;
+$success: #6bb324;
+$info: #53baf2;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+// Import bootstrap with overridden values above
+@import "~bootstrap/scss/bootstrap";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// Viewport height 100%
+.vh-100 {
+  height: 100vh;
+}
+
+// Center class for horizontally and vertically centered div
+.center-vertical-horizontal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// User Profile Picture
+.avatar {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar:hover {
+  transform: translate(0, 1px);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(60deg, $primary 25%, $secondary 50%, $primary 25%);
+}

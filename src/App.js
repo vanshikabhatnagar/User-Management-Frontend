@@ -1,34 +1,58 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Navbar, NavbarBrand, NavbarToggler, Container, Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
+import React, { useEffect, useState } from 'react'
+import { Card, CardBody, CardHeader, Col, Container, Row, Table } from 'reactstrap'
+import Header from './Header'
+import Axios from 'axios'
+
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggle = () => setIsOpen(!isOpen)
+  const [AllEmployees, setAllEmployees] = useState([])
+
+
+  useEffect(() => {
+    // Fetch Employees
+    Axios.get('http://127.0.0.1:5000/employee/get').then(e => {
+      setAllEmployees(e.data)
+    })
+  }, [])
+
   return (
     <>
-      <Navbar dark color='primary' expand='md' className='bg-primary justify-content-between'>
-        <NavbarToggler onClick={toggle} />
-        <NavbarBrand className='ml-4' tag={Link} to='/home'>
-          <h3 className='d-none d-md-block text-white'>Startup Management</h3>
-          <h5 className='d-md-none text-white'>Startup Management</h5>
-        </NavbarBrand>
-      </Navbar>
+      <Header />
       <Container fluid>
         <Row>
-          <Col xl={6} className='p-4'>
+          <Col xl={12} className='p-4'>
             <Card className='shadow'>
-              <CardHeader className='bg-primary text-white d-flex justify-content-center'>
+              <CardHeader className='bg-secondary text-white d-flex justify-content-center'>
                 Employees
               </CardHeader>
               <CardBody>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>EmpID</th>
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {AllEmployees.map(emp => {
+                      return (
+                        <tr>
+                          <td>{emp.empID}</td>
+                          <td>{emp.name}</td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </Table>
               </CardBody>
             </Card>
 
           </Col>
-          <Col xl={6} className='p-4'>
+        </Row>
+        <Row>
+          <Col xl={12} className='p-4'>
             <Card className='shadow'>
-              <CardHeader className='bg-primary text-white d-flex justify-content-center'>
+              <CardHeader className='bg-secondary text-white d-flex justify-content-center'>
                 Investors
               </CardHeader>
               <CardBody>
