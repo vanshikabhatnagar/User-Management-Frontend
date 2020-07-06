@@ -14,6 +14,7 @@ const SignIn = () => {
             setErrorMessage('Username or Password cannot be empty!')
         }
         else {
+            localStorage.clear()
             setLoading(true)
             Axios.post(`${BaseURL}login`, {
                 userID: Username,
@@ -67,7 +68,7 @@ const SignIn = () => {
                                 {Loading ?
                                     <Spinner color='primary' />
                                     :
-                                    <Button onClick={()=>loginToServer('manualLogin')} className='mt-3' color='secondary' type='button'>Sign In</Button>
+                                    <Button onClick={() => loginToServer('manualLogin')} className='mt-3' color='secondary' type='button'>Sign In</Button>
                                 }
                                 {ErrorMessage && <h5 className='mt-4 text-danger text-center'>{ErrorMessage}</h5>}
                             </Form>
