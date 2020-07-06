@@ -14,7 +14,8 @@ const SignIn = () => {
             setErrorMessage('Username or Password cannot be empty!')
         }
         else {
-            localStorage.clear()
+            if(type==='autoLogin')
+                localStorage.clear()
             setLoading(true)
             Axios.post(`${BaseURL}login`, {
                 userID: Username,
