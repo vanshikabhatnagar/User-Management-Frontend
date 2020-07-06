@@ -94,7 +94,7 @@ const App = () => {
           <Col xl={12} className='p-4'>
             <Card className='shadow'>
               <CardHeader className='bg-secondary text-white d-flex justify-content-center'>
-                Investors In Your Startup
+                Investors
               </CardHeader>
               <CardBody>
                 {

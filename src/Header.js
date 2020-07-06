@@ -9,8 +9,8 @@ const Header = () => {
         <Navbar dark color='primary' expand='md' className='bg-primary justify-content-between'>
             <NavbarToggler onClick={toggle} />
             <NavbarBrand className='ml-4' tag={Link} to='/home'>
-                <h3 className='d-none d-md-block text-white'>Startup Management</h3>
-                <h5 className='d-md-none text-white'>Startup Management</h5>
+                <h3 className='d-none d-md-block text-white'>User Management</h3>
+                <h5 className='d-md-none text-white'>User Management</h5>
             </NavbarBrand>
             <Collapse style={{ flexGrow: 0 }} isOpen={isOpen} navbar>
                 <Nav className='mr-auto' navbar>
